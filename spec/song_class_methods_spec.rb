@@ -21,7 +21,7 @@ describe "Song Class Methods" do
   describe '.create_by_name' do
     it 'instantiates and saves a song with a name property' do
       song = Song.create_by_name("Blank Space")
-
+      
       expect(song.name).to eq("Blank Space")
       expect(Song.all).to include(song)
     end
@@ -45,7 +45,7 @@ describe "Song Class Methods" do
     it 'invokes .find_by_name and .create_by_name instead of repeating code' do
       expect(Song).to receive(:find_by_name).at_least(1).times
       expect(Song).to receive(:create_by_name).at_least(1).times
-
+      
       Song.find_or_create_by_name("Alison")
     end
 
@@ -70,7 +70,7 @@ describe "Song Class Methods" do
       song_1 = Song.create_by_name("Thriller")
       song_2 = Song.create_by_name("Blank Space")
       song_3 = Song.create_by_name("Call Me Maybe")
-
+      
       expect(Song.alphabetical).to eq([song_2, song_3, song_1])
     end
   end
